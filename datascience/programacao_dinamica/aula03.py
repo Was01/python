@@ -14,6 +14,23 @@ colunasSelecionadas=['TP_FAIXA_ETARIA', 'TP_SEXO',
        'CO_PROVA_MT', 'NU_NOTA_CN', 'NU_NOTA_CH', 'NU_NOTA_LC',
        'NU_NOTA_MT', 'TX_RESPOSTAS_CN', 'TX_RESPOSTAS_CH',
        'TX_RESPOSTAS_LC', 'TX_RESPOSTAS_MT', 'TP_LINGUA',
-      ]
+       'TX_GABARITO_CN', 'TX_GABARITO_CH', 'TX_GABARITO_LC',
+       'TX_GABARITO_MT', 'TP_STATUS_REDACAO', 'NU_NOTA_COMP1',
+       'NU_NOTA_COMP2', 'NU_NOTA_COMP3', 'NU_NOTA_COMP4', 'NU_NOTA_COMP5',
+       'NU_NOTA_REDACAO']
 
-microdadosEnemSelecionados=microdadosEnem.filter(items=colunasSelecionadas)
+microdadosEnemSelecionado=microdadosEnem.filter(items=colunasSelecionadas)
+
+coluna_NO_MUNICIPIO_ESC=microdadosEnemSelecionado['NO_MUNICIPIO_ESC']
+
+coluna_TP_SEXO=microdadosEnemSelecionado['TP_SEXO']
+
+coluna_SG_UF_ESC=microdadosEnemSelecionado['SG_UF_ESC']
+
+coluna_NO_MUNICIPIO_ESC.value_counts().sort_index()
+
+coluna_TP_SEXO.value_counts()
+
+coluna_SG_UF_ESC.value_counts()
+
+coluna_SG_UF_ESC.hist(bins=27)
