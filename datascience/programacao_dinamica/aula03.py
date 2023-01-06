@@ -21,16 +21,22 @@ colunasSelecionadas=['TP_FAIXA_ETARIA', 'TP_SEXO',
 
 microdadosEnemSelecionado=microdadosEnem.filter(items=colunasSelecionadas)
 
-coluna_NO_MUNICIPIO_ESC=microdadosEnemSelecionado['NO_MUNICIPIO_ESC']
 
+coluna_NO_MUNICIPIO_ESC=microdadosEnemSelecionado['NO_MUNICIPIO_ESC']
+coluna_TP_SEXO=microdadosEnemSelecionado['TP_SEXO']
+coluna_SG_UF_ESC=microdadosEnemSelecionado['SG_UF_ESC']
+coluna_IN_TREINEIRO=microdadosEnemSelecionado['IN_TREINEIRO']
 coluna_TP_SEXO=microdadosEnemSelecionado['TP_SEXO']
 
-coluna_SG_UF_ESC=microdadosEnemSelecionado['SG_UF_ESC']
 
 coluna_NO_MUNICIPIO_ESC.value_counts().sort_index()
-
 coluna_TP_SEXO.value_counts()
-
 coluna_SG_UF_ESC.value_counts()
+coluna_IN_TREINEIRO.value_counts()
 
-coluna_SG_UF_ESC.hist(bins=27)
+
+dist_IN_TREINEIRO=coluna_IN_TREINEIRO.value_counts()
+dist_TP_SEXO=coluna_TP_SEXO.value_counts()
+
+porcentINTREINEIRO=[100*x/dist_IN_TREINEIRO.sum() for x in dist_IN_TREINEIRO] 
+porcentTPSEXO=[100*x/dist_TP_SEXO.sum() for x in dist_TP_SEXO]
